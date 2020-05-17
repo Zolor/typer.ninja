@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block content %}
+
+<h1 id="test"><span word="0">Test</span></h1>
+
+<input size="10" type="text" class="form-control" id="typer" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeypress="myFunction(event)">
+<script>
+/* In this example, we use a cross-browser solution, because the keyCode property does not work on the onkeypress event in Firefox. However, the which property does.
+Explanation of the first line in the function below: if the browser supports event.which, then use event.which, otherwise use event.keyCode */
+tmp = false;
+function myFunction(event) {
+  var x = event.which || event.keyCode;
+  if (x == 32 && tmp == false) {
+    document.getElementById("test").innerHTML = "<mark>Test</mark>";
+    document.getElementById('typer').value = '';
+    tmp = true;
+  }
+  else if (x == 32 && tmp == true){
+    document.getElementById("test").innerHTML = "Test";
+    document.getElementById('typer').value = '';
+    tmp = false;
+  }
+}
+</script>
+{% endblock %}
+
+<input type="text" class="form-control" id="inputfield" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
