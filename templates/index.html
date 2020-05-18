@@ -1,27 +1,23 @@
 {% extends "template.html" %}
 {% block content %}
-
-<h1 id="test"><span word="0">Test</span></h1>
-
-<input size="10" type="text" class="form-control" id="typer" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" onkeypress="myFunction(event)">
-<script>
-/* In this example, we use a cross-browser solution, because the keyCode property does not work on the onkeypress event in Firefox. However, the which property does.
-Explanation of the first line in the function below: if the browser supports event.which, then use event.which, otherwise use event.keyCode */
-tmp = false;
-function myFunction(event) {
-  var x = event.which || event.keyCode;
-  if (x == 32 && tmp == false) {
-    document.getElementById("test").innerHTML = "<mark>Test</mark>";
-    document.getElementById('typer').value = '';
-    tmp = true;
-  }
-  else if (x == 32 && tmp == true){
-    document.getElementById("test").innerHTML = "Test";
-    document.getElementById('typer').value = '';
-    tmp = false;
-  }
-}
-</script>
+        <div class="game">
+          <div class="word_box" id="test">
+            <span word="0" class="highlight">test</span>
+            <span word="1">try</span>
+            <span word="2">test</span>
+            <span word="3">try</span>
+            <span word="4">test</span>
+            <span word="5">try</span>
+            <span word="6">test</span>
+            <span word="7">try</span>
+            <span word="8">test</span>
+            <span word="9">try</span>
+            <span word="10">test</span>
+          </div>
+          <div class="input">
+            <input size="10" type="text" class="form-control" id="typer" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off"
+            autocapitalize="off" spellcheck="false" onkeypress="myFunction(event)">
+        </div>
+        </div>
+        <script src="{{url_for('static',filename='typer.js')}}"></script>
 {% endblock %}
-
-<input type="text" class="form-control" id="inputfield" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
