@@ -14,10 +14,11 @@
             <span word="9">try</span>
             <span word="10">test</span>
           </div>
-          <div class="input">
-            <input size="10" type="text" class="form-control" id="typer" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off"
-            autocapitalize="off" spellcheck="false" onkeypress="myFunction(event)">
-        </div>
+            <div class="input">
+              <input style="font-size:22px; padding: 10px 20px; height:45px;" size="10" type="text" class="form-control" id="typer" value="" dir="ltr" placeholder="" autocomplete="off" autocorrect="off"
+              autocapitalize="off" spellcheck="false" oninput="myGame(this.value)">
+            </div>
+            <div id="timer">1:00</div>
         </div>
         <script src="{{url_for('static',filename='typer.js')}}"></script>
 {% endblock %}

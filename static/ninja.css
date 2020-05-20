@@ -9,24 +9,29 @@ mark {
 }
 
 .game {
-  width: 600px;
+  width: 1000px;
   padding: 100px;
   margin: auto;
 }
 
 .word_box {
-  width: 400px;
+  width: 800px;
   border: 1px solid black;
   padding: 25px;
   margin: auto;
   text-align: center;
-  font-size: 16px;
+  font-size: 22px;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
 }
 
 .input {
-  padding: 15px;
-  margin: 10px;
-  font-size: 16px;
+  padding: 20px;
+  margin: auto;
+  max-width: 500px;
+  height: 100px;
 }
 
 .word_box .highlight {
@@ -43,4 +48,12 @@ mark {
 
 .word_box span {
   padding: 3px 5px 3px 5px;
+}
+
+#timer {
+  float: right;
+  margin-left: 7px;
+  cursor: pointer;
+  cursor: hand;
+  font-size: 22px;
 }
