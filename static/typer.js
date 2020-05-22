@@ -3,10 +3,12 @@ var correct_counter = 0;
 var timer = false;
 var cd = false;
 var countdown = 60;
+var y_coordinate;
+var scroll_counter = 0;
 
 function myGame(value) {
-  var x = value.slice(-1);
-  if (x == " " && document.getElementById('typer').value.length > 1) {
+  var last_char = value.slice(-1);
+  if (last_char == " " && document.getElementById('typer').value.length > 1) {
     let next = word_count + 1;
     document.querySelector(`[word="${next}"]`).classList.add('highlight');
     document.querySelector(`[word="${word_count}"]`).classList.remove('highlight');
@@ -20,9 +22,14 @@ function myGame(value) {
     }
     word_count ++;
     document.getElementById('typer').value = "";
+    /* Keep track of Y coordinate and scroll text when we reach new line */
+    if (getY() > y_coordinate) {
+      Scroller(y_coordinate);
+    }
+    y_coordinate = getY();
   }
   /* if user makes a space without written any characters -> reset the input field */
-  else if (x == " " && document.getElementById('typer').value.trim() == "") {
+  else if (last_char == " " && document.getElementById('typer').value.trim() == "") {
     document.getElementById('typer').value = "";
   }
   /* make a check for every character typed if it's correctly spelled and act accordingly */
@@ -46,20 +53,17 @@ function myGame(value) {
 function startTimer() {
   if (timer == false) {
     setval = window.setInterval(Timer, 1000);
-    start_time = get_current_time();
     timer = true;
   }
 }
 
 function Timer() {
   countdown--;
-
   var minute;
   var seconds;
-
   minute = Math.floor(countdown / 60);
   seconds = countdown % 60;
-  
+
   if(seconds < 10) {
     seconds = '0'+seconds;
   }
@@ -68,7 +72,23 @@ function Timer() {
   if(countdown > 9) {
     document.getElementById('timer').innerHTML = ("0:"+countdown);
   }
+
   else if(countdown > 0){
     document.getElementById('timer').innerHTML = ("0:0"+countdown);
+  }
+}
+
+/* Find Y coordinate for the current word/row */
+function getY() {
+  var elem = document.querySelector(`[word="${word_count}"]`);
+  var rect = elem.getBoundingClientRect();
+  return rect["y"];
+}
+
+/* Take an Y coordinate and adds display: none to the elements matching */
+function Scroller(value) {
+  for (var i = scroll_counter; i < word_count; i++) {
+    document.querySelector(`[word="${i}"]`).setAttribute("style", "display: none;");
+    scroll_counter++;
   }
 }

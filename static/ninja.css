@@ -16,8 +16,11 @@ mark {
 
 .word_box {
   width: 800px;
+  height: 100px;
+  overflow: hidden;
   border: 1px solid black;
-  padding: 25px;
+  padding: 20px;
+  line-height: 1.6;
   margin: auto;
   text-align: center;
   font-size: 22px;
@@ -47,7 +50,7 @@ mark {
 }
 
 .word_box span {
-  padding: 3px 5px 3px 5px;
+  padding: 10px 10px;
 }
 
 #timer {
