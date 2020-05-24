@@ -5,6 +5,23 @@ var cd = false;
 var countdown = 60;
 var y_coordinate;
 var scroll_counter = 0;
+var word_list = "";
+
+$(document).ready(function(){
+  /* $("button").click(function(){  <- This is for when we implement reload button*/
+    $.get("wordlist",function(data){
+      /* Populate the <div class="word_box"> with all the words */
+      /* word_list = JSON.parse(data); */
+      for (const [key, value] of Object.entries(data)) {
+        /* console.log(`${key} ${value}`); */
+        $(".word_box").append("<span word="+key+">"+value+"</span>");
+        if (key == "0"){
+          document.querySelector(`[word="${key}"]`).classList.add('highlight');
+        }
+      }
+    });
+  /* }); */
+});
 
 function myGame(value) {
   var last_char = value.slice(-1);

@@ -16,18 +16,24 @@ mark {
 
 .word_box {
   width: 800px;
-  height: 100px;
+  height: 140px;
   overflow: hidden;
   border: 1px solid black;
   padding: 20px;
-  line-height: 1.6;
   margin: auto;
   text-align: center;
-  font-size: 22px;
+  line-height: 1.6;
   -webkit-user-select: none;  /* Chrome all / Safari all */
   -moz-user-select: none;     /* Firefox all */
   -ms-user-select: none;      /* IE 10+ */
   user-select: none;
+}
+
+.word_box span{
+  display: inline-block;
+  padding: 5px;
+  font-size: 26px;
+  font-family: Times New Roman, Times, serif;
 }
 
 .input {
@@ -47,10 +53,6 @@ mark {
 
 .word_box .wrong_highlight {
   color: #d40000
-}
-
-.word_box span {
-  padding: 10px 10px;
 }
 
 #timer {
