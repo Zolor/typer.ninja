@@ -36,11 +36,17 @@ mark {
   font-family: Times New Roman, Times, serif;
 }
 
-.input {
+.input_div {
   padding: 20px;
   margin: auto;
   max-width: 500px;
   height: 100px;
+}
+
+.input_div input {
+  height: 45px;
+  padding: 10px 20px;
+  font-size: 22px;
 }
 
 .word_box .highlight {

@@ -6,6 +6,7 @@ var countdown = 60;
 var y_coordinate;
 var scroll_counter = 0;
 var word_list = "";
+var setval;
 
 $(document).ready(function(){
   /* $("button").click(function(){  <- This is for when we implement reload button*/
@@ -81,17 +82,22 @@ function Timer() {
   minute = Math.floor(countdown / 60);
   seconds = countdown % 60;
 
-  if(seconds < 10) {
+  if (seconds < 10) {
     seconds = '0'+seconds;
   }
   document.getElementById('timer').innerHTML = (minute+":"+seconds);
 
-  if(countdown > 9) {
+  if (countdown > 9) {
     document.getElementById('timer').innerHTML = ("0:"+countdown);
   }
 
-  else if(countdown > 0){
+  else if (countdown > 0) {
     document.getElementById('timer').innerHTML = ("0:0"+countdown);
+  }
+  else if (countdown == 0) {
+    document.getElementById('timer').innerHTML = ("0:0"+countdown);
+    clearInterval(setval);
+    win_screen()
   }
 }
 
@@ -108,4 +114,11 @@ function Scroller(value) {
     document.querySelector(`[word="${i}"]`).setAttribute("style", "display: none;");
     scroll_counter++;
   }
+}
+
+function win_screen() {
+  document.getElementById('typer').setAttribute("style", "pointer-events: none; background-color: #dddddd;");
+  document.getElementById('typer').value = "";
+  document.getElementById("typer").blur();
+  alert("Your score is: "+correct_counter+"WPM");
 }
