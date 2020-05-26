@@ -117,8 +117,10 @@ function Scroller(value) {
 }
 
 function win_screen() {
-  document.getElementById('typer').setAttribute("style", "pointer-events: none; background-color: #dddddd;");
+  document.getElementById('typer').setAttribute("style", "pointer-events: none; background-color: #dddddd; z-index: -1;");
+  document.getElementById('game').setAttribute("style", "z-index: -1;");
   document.getElementById('typer').value = "";
-  document.getElementById("typer").blur();
-  alert("Your score is: "+correct_counter+"WPM");
+  document.getElementById('typer').blur();
+  document.getElementById('win_screen').innerHTML = ("<b>Your WPM is:</b></br>"+correct_counter);
+  document.getElementById('win_screen').style.display = "block";
 }

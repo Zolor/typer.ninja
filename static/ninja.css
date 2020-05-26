@@ -12,6 +12,10 @@ mark {
   width: 1000px;
   padding: 100px;
   margin: auto;
+  position: absolute;
+  margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+  left: 0;
+  right: 0;
 }
 
 .word_box {
@@ -64,7 +68,31 @@ mark {
 #timer {
   float: right;
   margin-left: 7px;
-  cursor: pointer;
-  cursor: hand;
   font-size: 22px;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;
+}
+
+#win_screen {
+  z-index: 100;
+  /*position: center;*/
+  border: 1px solid black;
+  width: 200px;
+  height: 120px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: auto;
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.6;
+  position: fixed;
+  margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+  left: 0;
+  right: 0;
+  /* Only show when game is finished */
+  display: none;
+  top: 200px;
+  background: #FFF
 }
