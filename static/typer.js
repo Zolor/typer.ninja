@@ -9,7 +9,6 @@ var word_list = "";
 var setval;
 
 $(document).ready(function(){
-  /* $("button").click(function(){  <- This is for when we implement reload button*/
     $.get("wordlist",function(data){
       /* Populate the <div class="word_box"> with all the words */
       /* word_list = JSON.parse(data); */
@@ -21,7 +20,6 @@ $(document).ready(function(){
         }
       }
     });
-  /* }); */
 });
 
 function myGame(value) {
@@ -121,6 +119,10 @@ function win_screen() {
   document.getElementById('game').setAttribute("style", "z-index: -1;");
   document.getElementById('typer').value = "";
   document.getElementById('typer').blur();
-  document.getElementById('win_screen').innerHTML = ("<b>Your WPM is:</b></br>"+correct_counter);
+  $('#win_screen').html('<b>Your WPM is:</b></br>'+(correct_counter)+'</br><button class="retry_button" onclick="reload()">Try Again</button>');
   document.getElementById('win_screen').style.display = "block";
+}
+
+function reload() {
+  window.location.reload(true);
 }
