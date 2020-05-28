@@ -75,25 +75,15 @@ function startTimer() {
 
 function Timer() {
   countdown--;
-  var minute;
   var seconds;
-  minute = Math.floor(countdown / 60);
   seconds = countdown % 60;
 
   if (seconds < 10) {
     seconds = '0'+seconds;
   }
-  document.getElementById('timer').innerHTML = (minute+":"+seconds);
-
-  if (countdown > 9) {
-    document.getElementById('timer').innerHTML = ("0:"+countdown);
-  }
-
-  else if (countdown > 0) {
-    document.getElementById('timer').innerHTML = ("0:0"+countdown);
-  }
-  else if (countdown == 0) {
-    document.getElementById('timer').innerHTML = ("0:0"+countdown);
+  document.getElementById('timer').innerHTML = (seconds+"s");
+  if (countdown == 0) {
+    document.getElementById('timer').innerHTML = (seconds+"s");
     clearInterval(setval);
     win_screen()
   }
