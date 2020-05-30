@@ -1,7 +1,7 @@
 mark {
     background-color: #dadada;
     color: black;
-  }
+}
 
 body {
   background: #A5ABB6;
@@ -67,11 +67,10 @@ body {
 }
 
 .input_div input {
-  height: 45px;
+  height: 58px;
   padding: 12px 16px;
   font-size: 26px;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
-  height: 58px;
   border-radius: 20px;
 }
 
@@ -138,4 +137,20 @@ body {
 .container {
   width: 100%;
   padding: 30px;
+}
+
+@media (max-width: 800px) {
+  /* CSS that should be displayed if width less than 800px */
+  .game {
+    width: 100%;
+    padding: 50px;
+    position: absolute;
+    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    left: 0;
+    right: 0;
+  }
+  .input_div {
+    margin: auto;
+    max-width: 350px;
+  }
 }
