@@ -1,12 +1,15 @@
 var word_count = 0;
+var char_count = 0;
 var correct_counter = 0;
+var wrong_counter = 0;
 var timer = false;
 var cd = false;
-var countdown = 60;
+var seconds = 60;
 var y_coordinate;
 var scroll_counter = 0;
 var word_list = "";
 var setval;
+var tmp_val = "";
 
 $(document).ready(function(){
     $.get("wordlist",function(data){
@@ -35,6 +38,7 @@ function myGame(value) {
     }
     else {
         document.querySelector(`[word="${word_count}"]`).classList.add('wrong_highlight');
+        wrong_counter ++;
     }
     word_count ++;
     document.getElementById('typer').value = "";
@@ -43,6 +47,7 @@ function myGame(value) {
       Scroller(y_coordinate);
     }
     y_coordinate = getY();
+    tmp_val = "";
   }
   /* if user makes a space without written any characters -> reset the input field */
   else if (last_char == " " && document.getElementById('typer').value.trim() == "") {
@@ -64,6 +69,10 @@ function myGame(value) {
     cd = true;
     startTimer();
   }
+  if (tmp_val.length < value.length){
+    char_count++;
+  }
+  tmp_val = value;
 }
 
 function startTimer() {
@@ -74,15 +83,13 @@ function startTimer() {
 }
 
 function Timer() {
-  countdown--;
-  var seconds;
-  seconds = countdown % 60;
+  seconds--;
 
   if (seconds < 10) {
     seconds = '0'+seconds;
   }
   document.getElementById('timer').innerHTML = (seconds+"s");
-  if (countdown == 0) {
+  if (seconds == 0) {
     document.getElementById('timer').innerHTML = (seconds+"s");
     clearInterval(setval);
     win_screen()
@@ -109,7 +116,9 @@ function win_screen() {
   document.getElementById('game').setAttribute("style", "z-index: -1;");
   document.getElementById('typer').value = "";
   document.getElementById('typer').blur();
-  $('#win_screen').html('<b>Your WPM is:</b></br>'+(correct_counter)+'</br><button class="retry_button" onclick="reload()">Try Again</button>');
+  let net_wpm = ((char_count/5)-wrong_counter);
+  let acc = (correct_counter / word_count) * 100;
+  $('#win_screen').html('<b>Your Net WPM is: </b></br>'+(net_wpm.toFixed(1))+'</br><b>Your Accuracy: </b></br>'+(acc.toFixed(1))+'%</br><button class="retry_button" onclick="reload()">Try Again</button>');
   document.getElementById('win_screen').style.display = "block";
 }
 

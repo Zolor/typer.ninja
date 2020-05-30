@@ -4,7 +4,7 @@ mark {
   }
 
 body {
-  background: rgba(69, 73, 85, 0.5);;
+  background: #A5ABB6;
 }
 
 .form-control:focus {
@@ -93,19 +93,18 @@ body {
 #win_screen {
   z-index: 100;
   width: 240px;
-  height: 200px;
+  height: 270px;
   padding: 20px;
   margin: auto;
   font-size: 24px;
   text-align: center;
   line-height: 1.6;
   position: fixed;
-  margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+  margin: 5% auto;
   left: 0;
   right: 0;
-  /* Only show when game is finished */
   display: none;
-  top: 200px;
+  top: 400px;
   background: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   border-radius: 20px;
