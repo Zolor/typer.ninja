@@ -28,7 +28,6 @@ body {
   height: 160px;
   overflow: hidden;
   padding: 20px;
-  margin: auto;
   background: white;
   text-align: center;
   line-height: 1.6;
@@ -107,6 +106,7 @@ body {
   background: white;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   border-radius: 20px;
+  box-shadow: 15px 20px 10px #888888;
 }
 
 
@@ -132,11 +132,21 @@ body {
   bottom: 10px;
   position: relative;
   border-radius: 20px;
+  box-shadow: 3px 5px 5px #888888;
 }
 
 .container {
   width: 100%;
   padding: 30px;
+}
+
+#footerphoto {
+  width: 475;
+  height: 365px;
+  margin: 80px;
+  bottom: 0;
+  right: 20%;
+  position: absolute;
 }
 
 @media (max-width: 800px) {
