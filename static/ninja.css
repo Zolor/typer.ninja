@@ -15,9 +15,9 @@ body {
 .game {
   width: 65%;
   max-width: 1100px;
+  min-width: 1000px;
   padding: 100px;
-  margin: auto;
-  position: absolute;
+  position: relative;
   margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
   left: 0;
   right: 0;
@@ -137,30 +137,54 @@ body {
 
 .container {
   width: 100%;
-  padding: 30px;
+  padding: 5%;
 }
 
 #footerphoto {
-  width: 475;
-  height: 365px;
-  margin: 80px;
+  padding: 5%;
   bottom: 0;
-  right: 20%;
-  position: absolute;
+  width: 100%;
+  position: relative;
 }
 
-@media (max-width: 800px) {
+#footerphoto img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.col-xs-2 {display:none;}
+.col-xs-8 {display:none;}
+.col-sm-2 {display:block;}
+.col-sm-8 {display:block;}
+
+@media (max-width: 1200px) {
   /* CSS that should be displayed if width less than 800px */
   .game {
     width: 100%;
-    padding: 50px;
-    position: absolute;
-    margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+    padding: 25px;
+    min-width: 780px;
+    position: relative;
+    margin: 1% auto; /* Will not center vertically and won't work in IE6/7. */
     left: 0;
     right: 0;
   }
-  .input_div {
-    margin: auto;
-    max-width: 350px;
+}
+
+@media (max-width:780px) {
+  .col-xs-2 {display:block;}
+  .col-xs-8 {display:block;}
+  .col-sm-2 {display:none;}
+  .col-sm-8 {display:none;}
+
+  #footerphoto img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 50%;
   }
 }
